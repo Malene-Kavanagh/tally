@@ -2,12 +2,14 @@
 #include <vector>
 #include <cstdlib>
 
+using std::vector, std::cout, std::cin, std::endl;
+
 int main(int argc, char** argv)
 {
   char input = ' ';
   bool ongoing = true;
   unsigned int options = 0 ;
-  std::vector <unsigned int> tally;
+  vector <unsigned int> tally;
 
   if( argc == 1 ){
     options = 1;
@@ -21,19 +23,19 @@ int main(int argc, char** argv)
 
   while( ongoing ){
     int id;
-    std::cin >> input;
+    cin >> input;
 
     id = (int) input - '0';
     if( id >= 1 && id <= options ){
       tally[id-1]++;
     }
     else if( input == 'q' || input == 'Q' ) ongoing = false;
-    else std::cout<<"Press number 1 - 9 to increase the tally for that ID, or press Q to quit\n";
+    else cout<<"Press number 1 - 9 to increase the tally for that ID, or press Q to quit\n";
   }
   
-  std::cout << "Final Tally\n";
+  cout << "Final Tally\n";
   for(int i = 0; i < tally.size(); i++)
-    std::cout << (i+1) << ": " << tally[i] << std::endl;
+    cout << (i+1) << ": " << tally[i] << endl;
 
   return 0;
 }
