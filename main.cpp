@@ -14,6 +14,12 @@ int main(int argc, char** argv)
   }
   else if( argc == 2 && atoi(argv[1])){ // argument is provided that can convert character -> integer
     options = atoi(argv[1]); // convert character argument into integer
+    
+    if(options > 9 || options < 1){ //allows only for 1-9 digits
+      std::cerr << "<arg> - number of parties to tally (1-9). Default =1." << std::endl;
+      return(1); //exits with error
+    }
+
   }
   else ongoing = false;
 
